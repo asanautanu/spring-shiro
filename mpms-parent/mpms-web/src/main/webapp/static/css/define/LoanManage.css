@@ -1,0 +1,40 @@
+.processListWrap {
+	overflow-x: auto;
+    overflow-y:hidden;
+}
+
+.processListWrap .ibox-title,
+.processListWrap .ibox-content {
+	width: 9999px;
+}
+
+.processItem {
+	min-width: 100px;
+    min-height: 200px;
+    background: #989898;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: left;
+    padding: 5px 0;
+}
+
+.processItem .text-danger {
+	color:#DE172C;
+}
+
+.processItem .text-info {
+	color:#33ef73 !important;
+}
+
+.processItem .text-white {
+	color:#fff;
+	font-size: 16px;
+}
+
+.processItem .list-group .list-group-item {
+	border: none;
+	border-top-left-radius: none;
+    border-top-right-radius: none;
+    padding: 5px;
+    font-size: 13px;
+}

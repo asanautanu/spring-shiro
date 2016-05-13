@@ -1,0 +1,303 @@
+.leftWrap {
+  width: 99%;
+  float: left;
+  position: relative;
+}
+.rigthWrap {
+  width: 20px;
+  right: 10px;
+  position: absolute;
+  background: #19aa8d;
+  height:100%;
+  z-index: 100;
+  /*-webkit-transition:all .5s;
+	transition:all .5s*/
+}
+.rigthWrap .arrow {
+  position: relative;
+  width: 20px;
+  height: 100%;
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  float: left;
+  cursor: pointer;
+  background: #19aa8d;
+  margin-top: 0px !important;
+}
+
+.rigthWrap .arrow:after{
+	content:'点击展开功能区';
+	font-size: 18px;
+	color: #000;
+	position:absolute; 
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	-moz-transform:translate(-50%,-50%);
+	display: inline-block;
+}
+
+.rigthWrap .arrow i{
+	color: rgb(240, 216, 10);
+	position:absolute; 
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	-moz-transform:translate(-50%,-50%);
+	display: inline-block;
+}
+
+.rigthWrap .arrow .fa.fa-angle-double-right {
+	-moz-transform:scale(2) !important;
+	
+	zoom: 2 !important;
+	animation-play-state:paused;
+	-webkit-animation-play-state:paused;
+}
+
+.rigthWrap .arrow .fa.fa-angle-double-left {
+	-moz-transform:scale(3.9) !important;
+	zoom: 3.9 !important;
+	/* Safari and Chrome */
+	animation: fadeOut_Left 1s infinite linear;
+	-moz-animation: fadeOut_Left 1s infinite linear;
+	/* Firefox */
+	-webkit-animation: fadeOut_Left 1s infinite linear;
+}
+
+.rigthWrap .processWrap {
+  width: 150px;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  background: #19aa8d;
+}
+
+.processWrap .b-l {
+	border-left: 3px solid #e7eaec;
+}
+.processWrap .b-r {
+	border-right: 3px solid #e7eaec;
+}
+
+.rigthWrap .processWrap .text-danger {
+  color: #DE172C;
+}
+.rigthWrap .processWrap .text-info {
+  color: #33ef73;
+}
+.rigthWrap .processWrap .text-white {
+	color:#fff;
+	font-size: 18px;
+}
+
+.text-purple {
+	color:#673AB7;
+}
+
+.rigthWrap .processWrap p {
+  font-size: 13px;
+}
+
+.rigthWrap .processWrap .list-group .list-group-item {
+	border: none;
+	border-radius: 0;
+	border-top-left-radius: none;
+    border-top-right-radius: none;
+    padding: 1px;
+    font-size: 13px;
+    border-left: 5px solid #ed5565;
+    background: rgb(250, 250, 251);
+    margin: 5px 2px;
+}
+.rigthWrap .functionWrap .ibox.float-e-margins:first-child{
+	
+}
+
+.rigthWrap .functionWrap .ibox.float-e-margins:last-child{
+    margin-bottom: 0px !important;
+}
+
+.rigthWrap .functionWrap {
+  /* background: #19aa8d; */
+  width: 720px;
+  float: left;
+}
+.rigthWrap .functionWrap .ibox-content {
+  padding: 10px 20px;
+}
+.rigthWrap .functionWrap .tab-content .panel-body {
+  height: 470px;
+  padding: 10px !important;
+}
+
+.rigthWrap .functionWrap .tab-content .panel {
+   margin-bottom: 0px;!important;
+}
+
+@-moz-document url-prefix() { 
+	.rigthWrap .functionWrap .tab-content .panel-body {
+	  	height: 470px;
+	}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+	.rigthWrap .functionWrap .tab-content .panel-body {
+	    height: 485px;
+	}
+}
+
+.rigthWrap .functionWrap .ibox-content .btn-primary.active,
+.rigthWrap .functionWrap .ibox-content .btn-primary:active,
+.rigthWrap .functionWrap .ibox-content .btn-primary:focus,
+.rigthWrap .functionWrap .ibox-content .btn-primary:hover,
+.rigthWrap .functionWrap .ibox-content .open .dropdown-toggle.btn-primary {
+	background-color:#2A7D6C !important;
+	border-color:#2A7D6C !important;
+	color:#FFF;
+}
+
+.width-extend-sx {
+	width: 755px;
+	animation: widthExtend .3s;
+	-moz-animation: widthExtend .3s;
+	-webkit-animation: widthExtend .3s;
+}
+
+.width-extend {
+  width: 900px;
+  animation: widthExtend .3s;
+  -moz-animation: widthExtend .3s;
+  /* Firefox */
+  -webkit-animation: widthExtend .3s;
+  /* Safari and Chrome */
+}
+.width-shrink {
+  animation: widthShrink .3s;
+  -moz-animation: widthShrink .3s;
+  /* Firefox */
+  -webkit-animation: widthShrink .3s;
+  /* Safari and Chrome */
+}
+@keyframes widthExtend {
+  0% {
+    width: 100px;
+  }
+  25% {
+    width: 300px;
+  }
+  50% {
+    width: 600px;
+  }
+  100% {
+    width: 900px;
+  }
+}
+@-moz-keyframes widthExtend {
+  /* Firefox */
+  0% {
+    width: 100px;
+  }
+  25% {
+    width: 300px;
+  }
+  50% {
+    width: 600px;
+  }
+  100% {
+    width: 900px;
+  }
+}
+@-webkit-keyframes widthExtend {
+  /* Safari 和 Chrome */
+  0% {
+    width: 100px;
+  }
+  25% {
+    width: 300px;
+  }
+  50% {
+    width: 600px;
+  }
+  100% {
+    width: 900px;
+  }
+}
+@keyframes widthShrink {
+  0% {
+    width: 900px;
+  }
+  25% {
+    width: 600px;
+  }
+  50% {
+    width: 300px;
+  }
+  100% {
+    width: auto;
+  }
+}
+@-moz-keyframes widthShrink {
+  /* Firefox */
+  0% {
+    width: 900px;
+  }
+  25% {
+    width: 600px;
+  }
+  50% {
+    width: 300px;
+  }
+  100% {
+    width: auto;
+  }
+}
+@-webkit-keyframes widthShrink {
+  /* Safari 和 Chrome */
+  0% {
+    width: 900px;
+  }
+  25% {
+    width: 600px;
+  }
+  50% {
+    width: 300px;
+  }
+  100% {
+    width: auto;
+  }
+}
+
+
+@-webkit-keyframes fadeOut_Left{
+	0% {
+		opacity:1;
+		-webkit-transform:translateX(0);
+		transform:translateX(0);
+	}
+	100% {
+		opacity:0;
+		-webkit-transform:translateX(-8px);
+		transform:translateX(-8px);
+	}
+}
+@keyframes fadeOut_Left{
+	0% {
+		opacity:1;
+		-webkit-transform:translateX(0);
+		-ms-transform:translateX(0);
+		transform:translateX(0);
+	}
+	100% {
+		opacity:0;
+		-webkit-transform:translateX(-8px);
+		-ms-transform:translateX(-8px);
+		transform:translateX(-8px);
+	}
+}

@@ -1,0 +1,129 @@
+.leftWrap {
+	width: 99%;
+	float: left;
+	position: relative;
+}
+
+.rigthWrap {
+	width:20px;
+	right: 10px;
+	position: absolute;
+	background: #989898;
+	height: 100%;
+	z-index: 100;
+
+	/*-webkit-transition:all .5s;
+	transition:all .5s*/
+
+  .arrow {
+	position: relative;
+	display: box;
+    display: -webkit-box;
+    display: -moz-box;
+    width: 20px;
+    height: 100%;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+
+	-webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    float: left;
+  }
+
+  .processWrap{
+  	width: 150px;
+  	height: 100%;
+    float: left;
+
+    .text-danger {
+	    color: red;
+	}
+
+	.text-info {
+	    color: #00ff00;
+	}
+
+    p{
+    	font-size: 18px;
+    }
+  }
+
+  .functionWrap {
+  	    width: 720px;
+	    float: left;
+
+	    .ibox-content {
+	    	padding: 10px 20px;
+	    }
+
+	    .tab-content {
+	    	.panel-body{
+		    	height: 400px;
+		    }
+	    }
+  }
+}
+
+.width-extend {
+	width: 900px;
+	animation:widthExtend .3s;
+	-moz-animation:widthExtend .3s; /* Firefox */
+	-webkit-animation:widthExtend .3s; /* Safari and Chrome */
+}
+
+.width-shrink {
+	animation:widthShrink .3s;
+	-moz-animation:widthShrink .3s; /* Firefox */
+	-webkit-animation:widthShrink .3s; /* Safari and Chrome */
+}
+
+@keyframes widthExtend
+{
+	0%   {width: 100px;}
+	25%  {width: 300px;}
+	50%  {width: 600px;}
+	100% {width: 900px;}
+}
+
+@-moz-keyframes widthExtend /* Firefox */
+{
+	0%   {width: 100px;}
+	25%  {width: 300px;}
+	50%  {width: 600px;}
+	100% {width: 900px;}
+}
+
+@-webkit-keyframes widthExtend /* Safari 和 Chrome */
+{
+	0%   {width: 100px;}
+	25%  {width: 300px;}
+	50%  {width: 600px;}
+	100% {width: 900px;}
+}
+
+@keyframes widthShrink
+{
+	0%   {width: 900px;}
+	25%  {width: 600px;}
+	50%  {width: 300px;}
+	100% {width: auto;}
+}
+
+@-moz-keyframes widthShrink /* Firefox */
+{
+	0%   {width: 900px;}
+	25%  {width: 600px;}
+	50%  {width: 300px;}
+	100% {width: auto;}
+}
+
+@-webkit-keyframes widthShrink /* Safari 和 Chrome */
+{
+	0%   {width: 900px;}
+	25%  {width: 600px;}
+	50%  {width: 300px;}
+	100% {width: auto;}
+}

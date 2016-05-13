@@ -1,0 +1,35 @@
+.login .middle-box {
+  max-width: 750px;
+  padding-top: 200px;
+}
+.login .loginscreen.middle-box {
+  width: 100%;
+}
+.login .form-group {
+  margin-bottom: 30px;
+}
+.login .form-group .validate-img {
+  margin: 0 -15px;
+  padding-top: 11px;
+}
+.login .form-group .validate-img a {
+  display: inline-block;
+  float: left;
+}
+.login .form-group .validate-img a:last-child {
+  margin-top: 15px;
+  margin-left: 20px;
+}
+.login .form-group .validate-img img {
+  height: 34px;
+}
+.login .form-group .checkbox.checkbox-primary {
+  text-align: left;
+}
+.login .ibox-content {
+  padding: 15px 130px;
+}
+.login .error {
+  text-align: left;
+  color: red;
+}

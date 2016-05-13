@@ -1,0 +1,27 @@
+/*** 组织机构管理  ***/
+.orgManage table {
+	font-size: 12px;
+}
+
+.orgManage .modal-body {
+	padding: 10px 20px 10px;
+}
+
+.orgManage .modal-dialog {
+	width: 750px;
+}
+
+.orgManage .form-group {
+	margin-bottom: 5px;
+}
+
+.orgManage .modal-header,
+.orgManage .modal-footer {
+	padding: 10px;
+}
+
+.orgManage #myModal input,
+.orgManage #myModal select {
+	max-width: 150px;
+}
+

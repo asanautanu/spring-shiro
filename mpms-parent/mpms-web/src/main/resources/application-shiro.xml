@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+					http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd 
+					http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd 
+					http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+					 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<description>Shiro Configuration</description>
+
+	<!-- securityManager -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="userRealm" />
+		<!-- <property name="sessionManager" ref="defaultWebSessionManager" /> 
+			<property name="cacheManager" ref="cacheManager" /> -->
+		<property name="cacheManager" ref="shiroEhcacheManager" />
+			
+	</bean>
+	
+	
+	<!-- 自定义realm -->
+	<bean id="userRealm" class="com.mpms.auth.shiro.UserRealm">
+		<property name="cachingEnabled" value="true" />
+		<property name="authenticationCacheName" value="authenticationCache" />
+		<property name="authorizationCacheName" value="authorizationCache" />
+	</bean>
+	<!--添加验证码 -->
+	<bean id="myCaptchaFilter" class="com.mpms.auth.shiro.FormAuthenticationCaptchaFilter" />
+	
+	<!-- Shiro Filter -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/admin/login.do" />
+		<property name="successUrl" value="/index.html" />
+		<property name="filters">
+			<map>
+				<entry key="auths" value-ref="myCaptchaFilter" />
+			</map>
+		</property>
+		<property name="filterChainDefinitions">
+			<value>
+				/static/** = anon
+				/** = auths
+			</value>
+		</property>
+	</bean>
+
+	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+	<!-- AOP式方法级权限检查 -->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor">
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+	
+	
+	<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManagerConfigFile" value="classpath:ehcache-shiro.xml" />
+	</bean>
+</beans>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd  
+	http://www.springframework.org/schema/task
+    http://www.springframework.org/schema/task/spring-task.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop.xsd 
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd"
+	default-autowire="byType">
+
+	<context:component-scan base-package="com.mpms.web.manager" />
+	<context:component-scan base-package="com.mpms.web.controllers" />
+
+	<mvc:resources location="/js" mapping="/**" />
+	<mvc:resources location="/tpl" mapping="/**" />
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+
+	<context:annotation-config />
+
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean
+				class="com.mpms.web.messageconverter.JSONResultJackJsonMessageConverter">
+				<property name="objectMapper">
+					<bean class="com.mpms.web.messageconverter.CommonObjectMapper">
+						<property name="dateFormat">
+							<bean class="java.text.SimpleDateFormat">
+								<constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />
+							</bean>
+						</property>
+						<!-- <property name="serializationInclusion"> <value type="com.fasterxml.jackson.annotation.JsonInclude.Include">NON_NULL</value> 
+							</property> -->
+					</bean>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean> -->
+
+
+	<!-- controller aop 请求参数验证 -->
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<!-- 请求时间记录 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="com.mpms.web.interceptor.ExecuteTimeInterceptor">
+				<property name="slowTime" value="500" />
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+</beans>

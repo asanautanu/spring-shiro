@@ -1,0 +1,25 @@
+.overflow-x-auto {
+  overflow-x: auto;
+}
+.tabStyle .nav-tabs {
+  border-bottom: 2px solid #a7b1c2;
+}
+.tabStyle .nav-tabs > li > a {
+  border: 1px solid #a7b1c2;
+}
+.tabStyle .panel-body {
+  border: 1px solid #a7b1c2;
+  padding: 10px;
+}
+.tabStyle .nav-tabs > li.active > a,
+.tabStyle .nav-tabs > li.active > a:focus,
+.tabStyle .nav-tabs > li.active > a:hover {
+  border: 1px solid #a7b1c2;
+  background: #293846;
+  color: #a7b1c2;
+}
+.tabStyle .infoWrap {
+    min-height: 100px;
+    display: flex;
+    padding-top: 10px;
+}

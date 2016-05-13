@@ -1,0 +1,9 @@
+.index .index-logo{float:left;height:100%;padding:5px;width:185px;display:inline-table}.index .index-logo img{height:100%;width:100%}.index .index-company{float:left;width:500px;display:inline-table;height:100%;margin-top:10px}.index .index-company h1{margin:15px 0 10px 15px}/* 小屏幕（平板，大于等于 768px） */
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (min-width: 970px) and (max-width: 1170px) { 
+	.index .index-company h1 {
+   		margin: -65px 0 10px 180px;
+   		font-size: 28px;
+	}
+}
